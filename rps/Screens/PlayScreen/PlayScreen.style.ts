@@ -44,6 +44,26 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		color: "#7D29EA",
 	},
+	restart: {
+		paddingHorizontal: 24,
+		paddingVertical: 12,
+		backgroundColor: "#7D29EA",
+		borderRadius: 36,
+		position: "absolute",
+		right: 12,
+		top: 12,
+		zIndex: 1999,
+		opacity: 0.7,
+	},
+
+	restartTxt: {
+		color: "white",
+		fontWeight: "600",
+	},
+	name: {
+		color: "#be94f5",
+		fontSize: 24,
+	},
 });
 
 export default styles;
