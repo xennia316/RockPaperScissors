@@ -64,6 +64,11 @@ const styles = StyleSheet.create({
 		color: "#be94f5",
 		fontSize: 24,
 	},
+	img: {
+		width: 100, // Desired width of the image
+		height: 100, // Desired height of the image
+		resizeMode: "contain",
+	},
 });
 
 export default styles;

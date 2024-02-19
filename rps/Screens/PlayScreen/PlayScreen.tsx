@@ -80,6 +80,7 @@ const PlayScreen = () => {
 					<View style={styles.playing}>
 						<View>
 							<Image
+								style={styles.img}
 								source={
 									playerVal === "ROCK"
 										? image2
@@ -94,6 +95,7 @@ const PlayScreen = () => {
 						</View>
 						<View>
 							<Image
+								style={styles.img}
 								source={
 									computerVal === "ROCK"
 										? image2
@@ -117,14 +119,14 @@ const PlayScreen = () => {
 				</View>
 				<View style={styles.playing}>
 					<TouchableOpacity onPress={() => decision("SCISSORS")}>
-						<Image source={image1} />
+						<Image style={styles.img} source={image1} />
 					</TouchableOpacity>
 
 					<TouchableOpacity onPress={() => decision("PAPER")}>
-						<Image source={image3} />
+						<Image style={styles.img} source={image3} />
 					</TouchableOpacity>
 					<TouchableOpacity onPress={() => decision("ROCK")}>
-						<Image source={image2} />
+						<Image style={styles.img} source={image2} />
 					</TouchableOpacity>
 				</View>
 			</View>
