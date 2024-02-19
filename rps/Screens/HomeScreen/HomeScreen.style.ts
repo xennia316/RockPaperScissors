@@ -2,12 +2,13 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
 	body: {
-		backgroundColor: "white",
 		height: "100%",
 		width: "100%",
 		flex: 1,
+		alignSelf: "flex-start",
 		justifyContent: "flex-end",
 		alignItems: "center",
+		backgroundColor: "white",
 	},
 
 	btn: {
@@ -21,7 +22,10 @@ const styles = StyleSheet.create({
 		marginBottom: 48,
 	},
 
-	image: {},
+	image: {
+		// resizeMode: "center",
+		alignSelf: "flex-end",
+	},
 	btnText: {
 		fontSize: 16,
 		color: "white",
