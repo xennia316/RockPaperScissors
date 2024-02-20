@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./PlayScreen.style";
+import { Loader } from "../../components";
 
 const image2 = require("../../assets/images/rock.png");
 const image3 = require("../../assets/images/paper.png");
@@ -12,6 +13,7 @@ const PlayScreen = () => {
 	const [playerScore, setPlayerScore] = useState(0);
 	const [compScore, setCompScore] = useState(0);
 	const [winner, setWinner] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	const logic = (playerVal: string, computerVal: string) => {
 		if (playerVal === computerVal) {
@@ -28,6 +30,8 @@ const PlayScreen = () => {
 	};
 
 	const decision = (playerChoice: string) => {
+		setLoading(true);
+
 		const choices = ["ROCK", "PAPER", "SCISSORS"];
 		const compChoice = choices[Math.floor(Math.random() * choices.length)];
 		const val = logic(playerChoice, compChoice);
@@ -67,68 +71,73 @@ const PlayScreen = () => {
 	return (
 		<View style={styles.main}>
 			<View style={[styles.subMain, styles.shadowProp]}>
-				<TouchableOpacity
-					onPress={() => {
-						restart();
-					}}
-					style={styles.restart}
-				>
-					<Text style={styles.restartTxt}>Restart</Text>
-				</TouchableOpacity>
-				<Text style={[styles.winner, styles.name]}>{winner}</Text>
-				<View>
-					<View style={styles.playing}>
+				{loading && <Loader setLoading={setLoading} />}
+				{!loading && (
+					<>
+						<TouchableOpacity
+							onPress={() => {
+								restart();
+							}}
+							style={styles.restart}
+						>
+							<Text style={styles.restartTxt}>Restart</Text>
+						</TouchableOpacity>
+						<Text style={[styles.winner, styles.name]}>{winner}</Text>
 						<View>
-							<Image
-								style={styles.img}
-								source={
-									playerVal === "ROCK"
-										? image2
-										: playerVal === "SCISSORS"
-										? image1
-										: playerVal === "PAPER"
-										? image3
-										: image1
-								}
-							/>
-							{/* <Text>You</Text> */}
+							<View style={styles.playing}>
+								<View>
+									<Image
+										style={styles.img}
+										source={
+											playerVal === "ROCK"
+												? image2
+												: playerVal === "SCISSORS"
+												? image1
+												: playerVal === "PAPER"
+												? image3
+												: image1
+										}
+									/>
+									{/* <Text>You</Text> */}
+								</View>
+								<View>
+									<Image
+										style={styles.img}
+										source={
+											computerVal === "ROCK"
+												? image2
+												: computerVal === "SCISSORS"
+												? image1
+												: computerVal === "PAPER"
+												? image3
+												: image2
+										}
+									/>
+									{/* <Text>Computer</Text> */}
+								</View>
+							</View>
 						</View>
 						<View>
-							<Image
-								style={styles.img}
-								source={
-									computerVal === "ROCK"
-										? image2
-										: computerVal === "SCISSORS"
-										? image1
-										: computerVal === "PAPER"
-										? image3
-										: image2
-								}
-							/>
-							{/* <Text>Computer</Text> */}
+							<Text style={styles.winner}>Score</Text>
+							<View style={styles.score}>
+								<Text style={styles.scoreText}>{playerScore}</Text>
+								<Text style={styles.scoreText}>{compScore}</Text>
+							</View>
 						</View>
-					</View>
-				</View>
-				<View>
-					<Text style={styles.winner}>Score</Text>
-					<View style={styles.score}>
-						<Text style={styles.scoreText}>{playerScore}</Text>
-						<Text style={styles.scoreText}>{compScore}</Text>
-					</View>
-				</View>
-				<View style={styles.playing}>
-					<TouchableOpacity onPress={() => decision("SCISSORS")}>
-						<Image style={styles.img} source={image1} />
-					</TouchableOpacity>
+						<View style={styles.playing}>
+							<TouchableOpacity onPress={() => decision("SCISSORS")}>
+								<Image style={styles.img} source={image1} />
+							</TouchableOpacity>
 
-					<TouchableOpacity onPress={() => decision("PAPER")}>
-						<Image style={styles.img} source={image3} />
-					</TouchableOpacity>
-					<TouchableOpacity onPress={() => decision("ROCK")}>
-						<Image style={styles.img} source={image2} />
-					</TouchableOpacity>
-				</View>
+							<TouchableOpacity onPress={() => decision("PAPER")}>
+								<Image style={styles.img} source={image3} />
+							</TouchableOpacity>
+							<TouchableOpacity onPress={() => decision("ROCK")}>
+								<Image style={styles.img} source={image2} />
+							</TouchableOpacity>
+						</View>
+					</>
+				)}
 			</View>
 		</View>
 	);
