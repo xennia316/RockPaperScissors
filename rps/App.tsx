@@ -13,18 +13,9 @@ export default function App() {
 				<Stack.Screen
 					name="Play"
 					component={PlayScreen}
-					options={{ title: "" }}
+					options={{ headerBackTitleVisible: false }}
 				/>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#fff",
-		alignItems: "center",
-		justifyContent: "center",
-	},
-});
