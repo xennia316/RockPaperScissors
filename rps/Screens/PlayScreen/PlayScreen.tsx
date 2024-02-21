@@ -3,9 +3,10 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import styles from "./PlayScreen.style";
 import { Loader } from "../../components";
 
+const image1 = require("../../assets/images/scissors.png");
 const image2 = require("../../assets/images/rock.png");
 const image3 = require("../../assets/images/paper.png");
-const image1 = require("../../assets/images/scissors.png");
+const questionMark = require("../../assets/images/questionMark.png");
 
 const PlayScreen = () => {
 	const [playerVal, setPlayerVal] = useState(image1);
@@ -51,7 +52,7 @@ const PlayScreen = () => {
 	};
 
 	const restart = () => {
-		setPlayerVal(image1);
+		setPlayerVal(questionMark);
 		setComputerVal(image2);
 		setCompScore(0);
 		setPlayerScore(0);
@@ -95,7 +96,7 @@ const PlayScreen = () => {
 												? image1
 												: playerVal === "PAPER"
 												? image3
-												: image1
+												: questionMark
 										}
 									/>
 									{/* <Text>You</Text> */}
@@ -110,7 +111,7 @@ const PlayScreen = () => {
 												? image1
 												: computerVal === "PAPER"
 												? image3
-												: image2
+												: questionMark
 										}
 									/>
 									{/* <Text>Computer</Text> */}

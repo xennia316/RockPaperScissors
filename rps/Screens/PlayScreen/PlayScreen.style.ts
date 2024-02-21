@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
 		width: 100, // Desired width of the image
 		height: 100, // Desired height of the image
 		resizeMode: "contain",
+		backgroundColor: "white",
 	},
 });
 
