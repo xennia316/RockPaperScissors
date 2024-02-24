@@ -14,7 +14,7 @@ const HomeScreen = () => {
 			imageStyle={styles.image}
 		>
 			<TouchableOpacity
-				style={styles.btn}
+				style={styles.button}
 				onPress={() => {
 					navigation.navigate("Play");
 				}}
