@@ -83,7 +83,7 @@ const PlayScreen = () => {
 						>
 							<Text style={styles.restartTxt}>Restart</Text>
 						</TouchableOpacity>
-						<Text style={[styles.winner, styles.name]}>winner is {winner}</Text>
+						<Text style={[styles.winner, styles.name]}>{winner}</Text>
 						<View>
 							<View style={styles.playing}>
 								<View>
