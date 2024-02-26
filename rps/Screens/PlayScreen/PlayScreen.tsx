@@ -65,7 +65,7 @@ const PlayScreen = () => {
 		} else if (playerScore < compScore) {
 			setWinner("You're loosing");
 		} else if (playerScore === compScore) {
-			setWinner("It's a tie");
+			setWinner("It's a tie, try again");
 		}
 	}, [playerVal, computerVal]);
 
@@ -83,7 +83,7 @@ const PlayScreen = () => {
 						>
 							<Text style={styles.restartTxt}>Restart</Text>
 						</TouchableOpacity>
-						<Text style={[styles.winner, styles.name]}>{winner}</Text>
+						<Text style={[styles.winner, styles.name]}>winner is {winner}</Text>
 						<View>
 							<View style={styles.playing}>
 								<View>
