@@ -16,7 +16,7 @@ const Loader = ({ setLoading }) => {
 			setCurrentText(texts[currentTextIndex]);
 		}, 1000);
 
-		setTimeout(() => setLoading(false), 3050);
+		setTimeout(() => setLoading(false), 3009);
 
 		return () => clearInterval(interval);
 	}, []);
